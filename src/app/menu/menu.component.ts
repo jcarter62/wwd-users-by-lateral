@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { AppRoutingModule } from '../app-routing.module';
-import {forEach} from '@angular/router/src/utils/collection';
-import {Routes} from '@angular/router';
 
 interface IMenu {
   name: string;
@@ -16,6 +14,7 @@ interface IMenu {
 export class MenuComponent implements OnInit {
   private appRoutes = null;
   items = Array<IMenu>() ;
+  menu = [];
   title = '';
 
   constructor(
@@ -25,25 +24,18 @@ export class MenuComponent implements OnInit {
 
   ngOnInit() {
     this.appRoutes = this.arm.routes;
+    this.menu = this.arm.menu;
     this.title = this.arm.title;
-    this.buildMenu(this.appRoutes);
+    this.buildMenu();
   }
 
-  private buildMenu(routes: Routes ) {
+  private buildMenu() {
     const menuItems = Array<IMenu>();
-    for ( const r of routes ) {
-      if ( r.path !== '**' ) {
-        if ( r.path.length > 0 ) {
-          const i = {name: r.path, link: '/'.concat(r.path)  };
-          menuItems.push(i);
-        }
-      }
+    for ( const r of this.menu ) {
+      const i = {name: r.name, link: r.link };
+      menuItems.push(i);
     }
-
     console.dir(menuItems);
-
     this.items = menuItems;
-
   }
-
 }
