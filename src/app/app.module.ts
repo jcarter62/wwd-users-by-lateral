@@ -16,6 +16,7 @@ import { AccountComponent } from './account/account.component';
 import { MeterComponent } from './meter/meter.component';
 import { LateralComponent } from './lateral/lateral.component';
 import {HttpModule} from '@angular/http';
+import {Ng2SmartTableModule} from 'ng2-smart-table';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import {HttpModule} from '@angular/http';
     BrowserModule,
     AppRoutingModule,
       FormsModule,
-      HttpModule
+      HttpModule,
+      Ng2SmartTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

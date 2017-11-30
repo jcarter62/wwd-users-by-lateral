@@ -41,7 +41,11 @@ testem.log
 .DS_Store
 Thumbs.db
 
-# compiled js files.
+# test js files.
 *spec.ts
+
+#
+/package-lock.json
+
 
 
