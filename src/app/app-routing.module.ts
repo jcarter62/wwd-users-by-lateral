@@ -18,7 +18,7 @@ const routeData: Routes = [
     { path: 'accounts', component: AccountsComponent, pathMatch: 'full' },
     { path: 'account', component: AccountComponent, pathMatch: 'full' },
     { path: 'laterals', component: LateralsComponent, pathMatch: 'full' },
-    { path: 'lateral', component: LateralComponent, pathMatch: 'full' },
+    { path: 'lateral/:id', component: LateralComponent, pathMatch: 'full' },
     { path: 'meters', component: MetersComponent, pathMatch: 'full' },
     { path: 'meter', component: MeterComponent, pathMatch: 'full' },
     { path: '', redirectTo: '/home', pathMatch: 'full'},

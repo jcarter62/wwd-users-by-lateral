@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {LateralsService} from '../services/laterals.service';
 import {ILateral} from '../interface/ilateral';
 import {isNullOrUndefined} from 'util';
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'app-laterals',
@@ -18,7 +19,10 @@ export class LateralsComponent implements OnInit {
         actions: false
     };
 
-    constructor(private latsvc: LateralsService) {
+    constructor(
+        private latsvc: LateralsService,
+        private router: Router
+        ) {
 
     }
 
@@ -42,6 +46,11 @@ export class LateralsComponent implements OnInit {
             lateral = '';
         }
         console.log('Selected Lateral:' + lateral);
+
+        if ( lateral > '' ) {
+            this.router.navigate(['/lateral/' + lateral] );
+        }
+
     }
 
 }
