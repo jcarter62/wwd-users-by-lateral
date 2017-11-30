@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {isUndefined} from 'util';
+import { SettingsService} from '../services/settings.service';
 
 @Component({
   selector: 'app-settings',
@@ -8,26 +8,24 @@ import {isUndefined} from 'util';
 })
 export class SettingsComponent implements OnInit {
   apikey: string;
+  apiprefix: string;
 
-  constructor() {
-
+  constructor(
+      private settings: SettingsService
+  ) {
   }
 
   ngOnInit() {
-      console.log('ngOnInit, loading apikey');
-
-      this.apikey = localStorage.getItem('apikey');
-      if ( isUndefined(this.apikey) ) {
-        this.apikey = '';
-      }
-      console.log('key=', this.apikey);
-
+      this.apikey = this.settings.apikey;
+      this.apiprefix = this.settings.apiPrefix;
   }
 
-  savekey() {
-    console.log('saving key=', this.apikey);
 
-    localStorage.setItem('apikey', this.apikey);
+  submitButton() {
+      console.log('Saving form data');
+
+      this.settings.apikey = this.apikey;
+      this.settings.apiPrefix = this.apiprefix;
   }
 
 }

@@ -15,6 +15,7 @@ import { MetersComponent } from './meters/meters.component';
 import { AccountComponent } from './account/account.component';
 import { MeterComponent } from './meter/meter.component';
 import { LateralComponent } from './lateral/lateral.component';
+import {HttpModule} from '@angular/http';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { LateralComponent } from './lateral/lateral.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-      FormsModule
+      FormsModule,
+      HttpModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,3 +1,31 @@
-<div>
-API Key: <input type="text" [(ngModel)]="apikey" (change)="savekey();" >
+<div class="jumbotron">
+    <form>
+        <div class="container">
+            <div class="row">
+            <div class="col-2">
+                <label>API Key:</label>
+            </div>
+                <div class="col-10">
+                <input type="text" [(ngModel)]="apikey" class="form-control" name="apikey">
+            </div>
+            </div>
+
+            <div class="row">
+                <div class="col-2">
+                    <label>API Prefix:</label>
+                </div>
+                <div class="col-10">
+                    <input type="text" [(ngModel)]="apiprefix" class="form-control" name="apiprefix">
+                </div>
+            </div>
+
+            <hr>
+            <div class="row">
+                <div class="col">
+                    <button type="submit" (click)="submitButton()" class="btn btn-success">Submit</button>
+
+                </div>
+            </div>
+        </div>
+    </form>
 </div>
