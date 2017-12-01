@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {IMeterDetail} from '../interface/imeterdetail';
 import {MetersService} from '../services/meters.service';
@@ -9,7 +9,7 @@ import {LocalDataSource} from 'ng2-smart-table';
   templateUrl: './meters.component.html',
   styleUrls: ['./meters.component.css']
 })
-export class MetersComponent implements OnInit {
+export class MetersComponent implements OnInit, AfterViewInit {
   meters = Array<IMeterDetail>();
 
   tableSettings = {
@@ -20,7 +20,11 @@ export class MetersComponent implements OnInit {
             area: {title: 'Service Area'}
         },
         actions: false,
-        noDataMessage: '... Loading ...'
+        noDataMessage: '... Loading ...',
+        defaultStyle: false,
+        attr: {
+            class: 'mytable'
+        }
     };
 
   source: LocalDataSource;
@@ -34,6 +38,10 @@ export class MetersComponent implements OnInit {
 
   ngOnInit() {
     this.mtrsvc.load((result)=>{ this.loaded(); } );
+  }
+
+  ngAfterViewInit() {
+      console.log('After view init');
   }
 
   private loaded() {
@@ -50,19 +58,3 @@ export class MetersComponent implements OnInit {
     this.source.refresh();
   }
 }
-
-// userRowSelected(obj) {
-//     console.log(obj);
-//     let lateral = '';
-//     try {
-//         lateral = obj.selected[0].lateralname;
-//     } catch (e) {
-//         lateral = '';
-//     }
-//     console.log('Selected Lateral:' + lateral);
-//
-//     if ( lateral > '' ) {
-//         this.router.navigate(['/lateral/' + lateral] );
-//     }
-//
-// }

@@ -33,7 +33,7 @@ const menuData = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routeData , {enableTracing: true}  )],
+  imports: [RouterModule.forRoot(routeData /* , {enableTracing: true} */ )],
   exports: [RouterModule]
 })
 export class AppRoutingModule {

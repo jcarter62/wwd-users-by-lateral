@@ -1,0 +1,19 @@
+
+.container {
+    font-size: 2.0vw;
+}
+
+/*.mytable {*/
+    /*line-height: 0.25em;*/
+/*}*/
+
+/*ng2-smart-table table tr td  {*/
+    /*line-height: 0.25em;*/
+/*}*/
+
+/*myid -> table -> tbody -> tr -> td */
+
+:host /deep/ ng2-smart-table-title > a { color: red; }
+:host /deep/ ng2-smart-table-cell {
+    line-height: 0.25em;
+}

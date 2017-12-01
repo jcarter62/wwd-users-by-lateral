@@ -1,10 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppRoutingModule } from '../app-routing.module';
-
-interface IMenu {
-  name: string;
-  link: string;
-}
+import { MenuItem} from './menu.interface';
 
 @Component({
   selector: 'app-menu',
@@ -13,9 +9,10 @@ interface IMenu {
 })
 export class MenuComponent implements OnInit {
   private appRoutes = null;
-  items = Array<IMenu>() ;
+  items = Array<MenuItem>() ;
   menu = [];
   title = '';
+  titleUrl = '';
 
   constructor(
     private arm: AppRoutingModule
@@ -26,11 +23,12 @@ export class MenuComponent implements OnInit {
     this.appRoutes = this.arm.routes;
     this.menu = this.arm.menu;
     this.title = this.arm.title;
+    this.titleUrl = '/';
     this.buildMenu();
   }
 
   private buildMenu() {
-    const menuItems = Array<IMenu>();
+    const menuItems = Array<MenuItem>();
     for ( const r of this.menu ) {
       const i = {name: r.name, link: r.link };
       menuItems.push(i);

@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, OnInit, ViewChildren} from '@angular/core';
 import {LateralsService} from '../services/laterals.service';
 import {ILateral} from '../interface/ilateral';
 import {isNullOrUndefined} from 'util';
@@ -9,7 +9,9 @@ import {Router} from '@angular/router';
     templateUrl: './laterals.component.html',
     styleUrls: ['./laterals.component.css']
 })
-export class LateralsComponent implements OnInit {
+export class LateralsComponent implements OnInit, AfterViewInit {
+    @ViewChildren('ng2-smart-table') t1;
+
     laterals: [ILateral];
     tableSettings = {
         columns: {
@@ -31,6 +33,13 @@ export class LateralsComponent implements OnInit {
         this.latsvc.load((result) => {
             this.loaded();
         });
+    }
+
+
+    ngAfterViewInit(): void {
+        console.log('ngAfterViewInit');
+        console.dir(window);
+
     }
 
     loaded() {

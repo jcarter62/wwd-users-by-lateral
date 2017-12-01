@@ -15,7 +15,6 @@ export class LateralsService {
         private settings: SettingsService,
         private http: Http
     ) {
-        this.load();
     }
 
     load( callback? ) {
