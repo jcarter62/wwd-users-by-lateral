@@ -1,3 +1,10 @@
 .navbar {
   margin-bottom: 0;
 }
+
+h1 { font-size: 7.0vw; }
+h2 { font-size: 5.0vw; }
+h3 { font-size: 4.0vw; }
+body { font-size: 3.0vmin; }
+nav { font-size: 3.0vw; }
+nav.a { font-size: 3.0vw; }

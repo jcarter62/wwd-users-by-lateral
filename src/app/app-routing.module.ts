@@ -20,7 +20,7 @@ const routeData: Routes = [
     { path: 'laterals', component: LateralsComponent, pathMatch: 'full' },
     { path: 'lateral/:id', component: LateralComponent, pathMatch: 'full' },
     { path: 'meters', component: MetersComponent, pathMatch: 'full' },
-    { path: 'meter', component: MeterComponent, pathMatch: 'full' },
+    { path: 'meter/:id', component: MeterComponent, pathMatch: 'full' },
     { path: '', redirectTo: '/home', pathMatch: 'full'},
     { path: '**', component: PnfComponent }
 ];

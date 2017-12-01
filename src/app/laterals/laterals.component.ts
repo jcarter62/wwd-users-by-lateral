@@ -16,7 +16,8 @@ export class LateralsComponent implements OnInit {
             lateralname: {title: 'Lateral'},
             area: {title: 'Service Area'}
         },
-        actions: false
+        actions: false,
+        noDataMessage: '... Loading ...'
     };
 
     constructor(

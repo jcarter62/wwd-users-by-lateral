@@ -1,3 +1,18 @@
-<p>
-  meters works!
-</p>
+
+<div class="container">
+  <div class="jumbotron">
+    <div class="row">
+      <div class="col text-right">
+        <button type="button" (click)="resetButton()" class="btn btn-success">Clear</button>
+      </div>
+    </div>
+
+    <ng2-smart-table
+            (userRowSelect)="userRowSelected($event)"
+            [settings]="tableSettings"
+            [source]="meters">
+    </ng2-smart-table>
+    <hr>
+
+  </div>
+</div>

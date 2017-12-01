@@ -1,3 +1,13 @@
-<p>
-  lateral works!
-</p>
+
+<div class="container">
+  <div class="jumbotron">
+    <h2>Lateral: {{title}}</h2>
+
+    <ng2-smart-table
+            (userRowSelect)="userRowSelected($event)"
+            [settings]="tableSettings"
+            [source]="meters">
+
+    </ng2-smart-table>
+  </div>
+</div>
